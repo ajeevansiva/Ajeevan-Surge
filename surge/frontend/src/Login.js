@@ -38,62 +38,28 @@ function Login() {
         }
     };
 
-    return ( <
-        div className = "main" >
-        <
-        div className = "sub-main" >
-        <
-        div >
-        <
-        h1 > Login Page < /h1> <
-        FaUserAlt style = {
-            { fontSize: "50px", paddingBottom: "10px" }
-        }
-        /> < /
-        div > <
-        div >
-        <
-        FaEnvelope className = "inputDiv" / >
-        <
-        input type = "text"
-        placeholder = "user name"
-        className = "name"
-        onChange = {
-            (e) => {
-                setUsername(e.target.value);
-            }
-        }
-        /> < /
-        div > <
-        div className = "second-input" >
-        <
-        FaLock className = "inputDiv"
-        style = {
-            { color: "black" }
-        }
-        />
-
-        <
-        input type = "password"
-        placeholder = "password"
-        className = "name"
-        onChange = {
-            (e) => {
-                setPassword(e.target.value);
-            }
-        }
-        /> < /
-        div > <
-        div className = "login-button" >
-        <
-        button onClick = { onHandleLoginSubmit } > Login < /button> <
-        p className = "link" >
-        Don 't have an account ? <Link to="/signup">Sign Up Here</Link> < /
-        p > { userDetails ? < h3 > Hi { userDetails } < /h3> : <p></p > } <
-        /div> < /
-        div > <
-        /div>
-    );
+    return (
+        <div className="Login">
+            <h1>Login</h1>
+            <form onSubmit={loginUser}>
+                <input 
+                    value={email}
+                    onChange={(e) => setEmail(e.target.value)}
+                    type="email"
+                    placeholder="Email"
+                />
+                <br />
+                <input 
+                    value={password}
+                    onChange={(e) => setPassword(e.target.value)}
+                    type="password"
+                    placeholder="Password"
+                />
+                <br />
+                <input type="submit" value="Login" />
+            </form>
+        </div>
+    )
 
 }
 export default Login
